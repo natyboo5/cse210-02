@@ -46,6 +46,10 @@ class Dealer:
             self.get_input()
             self.output()
             self.update_points()
+            
+            if self.is_playing == False:
+                break
+                
             self.play_again()
 
     def get_input(self): 
@@ -61,7 +65,11 @@ class Dealer:
     def update_points(self):
         
         self.points += self.new_points
-        print(f'Your score is: {self.points}')
+        if self.points <= 0:
+            self.is_playing = False
+            print('You do not have enough points')
+        else:
+            print(f'Your score is: {self.points}')
         
     
     def output(self):
