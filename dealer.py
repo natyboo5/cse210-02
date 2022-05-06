@@ -1,3 +1,4 @@
+""" Hilo Game """
 
 class Dealer:
     """A person who directs the game. 
