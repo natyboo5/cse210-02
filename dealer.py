@@ -54,12 +54,20 @@ class Dealer:
 
     def get_input(self): 
         
-        self.guess = input('Higher or Lower [h/l]: ')
+        while True:
+            self.guess = input('Higher or Lower [h/l]: ').lower()
 
-        display_card = Display_card()
-        self.guess_card = display_card.draw()
+            if self.guess == 'l' or self.guess == 'h':
 
-        print(f'Next card was: {self.guess_card}')
+                display_card = Display_card()
+                self.guess_card = display_card.draw()
+
+                print(f'Next card was: {self.guess_card}')
+                break
+                
+            else:
+                print('Wrong letter')
+                continue
 
         
     def update_points(self):
