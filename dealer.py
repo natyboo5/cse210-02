@@ -95,6 +95,10 @@ class Dealer:
         else:
             print(f'Your score is: {self.points}')
         
+        if (self.card < self.guess_card and self.guess == 'l') or (self.card > self.guess_card and self.guess == 'h'):
+            self.new_points = -75
+        else:
+            self.new_points = 100
     
     def output(self):
     
