@@ -59,8 +59,13 @@ class Dealer:
 
             if self.guess == 'l' or self.guess == 'h':
 
-                display_card = Display_card()
-                self.guess_card = display_card.draw()
+                while True:
+                    display_card = Display_card()
+                    self.guess_card = display_card.draw()
+                    if self.guess_card == self.card:
+                        continue
+                    else:
+                        break
 
                 print(f'Next card was: {self.guess_card}')
                 break
