@@ -1,6 +1,6 @@
 """ Hilo Game """
 
-from card import Display_card
+from game.card import Display_card
 
 class Dealer:
     """A person who directs the game. 

@@ -2,6 +2,8 @@
     
 README FILE
 
+## Project Name: Hilo Game
+
 ## Hilo Specification
 
 Life is not a matter of holding good cards,
@@ -9,7 +11,7 @@ but sometimes, playing a poor hand well.
 
 - Jack London -
 
-## Overview
+## Project Description
 
 Hilo is a game in which the player guesses if the next card drawn by the dealer will be higher or lower than the previous one. Points are won or lost based on whether or not the player guessed correctly.
 
@@ -30,8 +32,7 @@ Hilo is played according to the following rules.
 
 ## Getting Started
 
-You can run the program from an IDE like Visual Studio Code. Start your IDE and open the
-project folder. Select the main module inside the dice folder and click the "run" button.
+You can run the program from an IDE like Visual Studio Code. Start your IDE and open the project folder. Select the main module inside the hilo game folder and click the "run" button.
 
 ## Project Structure
 
@@ -47,7 +48,7 @@ root                    (project root folder)
   +-- README.md         (general info)
 ```
 
-## Required Technologies
+## Required Software
 
 ---
 
@@ -57,8 +58,8 @@ root                    (project root folder)
 
 ---
 
-- Natalia Paredes
-- Manuel Said Nava Ruiz
-- Edgar Valderrama
-- Diana Quispe
+- Natalia Paredes - nparedes517@yahoo.com
+- Manuel Said Nava Ruiz - nav22003@byui.edu
+- Edgar Valderrama - valderrama311@gmail.com
+- Diana Quispe - diannaquispe@gmail.com
 
