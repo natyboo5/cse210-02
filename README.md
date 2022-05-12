@@ -1,5 +1,5 @@
-# cse210-02    
-    
+# cse210-02
+
 README FILE
 
 ## Project Name: Hilo Game
@@ -42,10 +42,11 @@ The project files and folders are organized as follows:
 
 ```
 root                    (project root folder)
++-- game              (specific classes)
   +-- card.py           (specific class)
   +-- dealer.py         (specific class)
-  +-- __main__.py       (program entry point)
-  +-- README.md         (general info)
++-- __main__.py       (program entry point)
++-- README.md         (general info)
 ```
 
 ## Required Software

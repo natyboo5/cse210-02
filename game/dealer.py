@@ -4,11 +4,11 @@ from game.card import Display_card
 from time import sleep
 
 class Dealer:
-    """A person who directs the game. 
-    
+    """A person who directs the game.
+
     The dealer's responsability is to control the sequence of the game
-    
-    Attributes: 
+
+    Attributes:
         card(int): The value of the card drawn
         is_playing (boolean): Whether or not the game is being played.
         score (int): The score for one round of play.
@@ -17,7 +17,7 @@ class Dealer:
 
     def _init_(self):
         """Constructor a new Dealer.
-        
+
         Args:
             self (Dealer): an instance of Dealer.
         """
@@ -32,7 +32,7 @@ class Dealer:
 
     def start_game(self):
         """Starts the game by running the main game loop.
-        
+
         Args:
             self (Dealer): an instance of Dealer.
         """
@@ -40,26 +40,26 @@ class Dealer:
         self.is_playing = True
 
         print(f'\n\033[31mHILO GAME\033[0m')
-        
+
         while self.is_playing:
             display_card = Display_card()
             self.card = display_card.drawn()
-            
+
             self.stop_card = self.card
             self.print_numbers()
 
             self.get_input()
             self.output()
             self.update_points()
-            
+
             if self.is_playing == False:
                 break
-                
+
             self.play_again()
-    
+
     def print_numbers(self):
         """This function prints a list of numbers and stops at the selected card..
-        
+
         Args:
             self (Dealer): an instance of Dealer.
         """
@@ -73,16 +73,16 @@ class Dealer:
         print(f'\033[31m{self.stop_card}\033[0m')
 
         print(f'\nThe card is: {self.stop_card}')
-        
-        
-    def get_input(self): 
+
+
+    def get_input(self):
         """Ask the user to guess if the next card is higher or lower, and confirm the input is entered correctly (either "h" or "l" only).
         After the input is validated, call the function draw(self) and display a new card.
 
         Args:
             self (Dealer): an instance of Dealer.
         """
-        
+
         while True:
             self.guess = input('Higher or Lower [h/l]: ').lower()
 
@@ -98,48 +98,48 @@ class Dealer:
 
                 print(f'Next card was: {self.guess_card}')
                 break
-                
+
             else:
                 print('Wrong letter')
                 continue
 
-        
+
     def update_points(self):
         """A method that determines the score for the entire game
-        
+
         Args:
             self (Dealer): an instance of Dealer.
         """
-        
+
         self.points += self.new_points
         if self.points <= 0:
             self.is_playing = False
             print('You do not have enough points')
         else:
             print(f'Your score is: {self.points}')
-        
+
         if (self.card < self.guess_card and self.guess == 'l') or (self.card > self.guess_card and self.guess == 'h'):
             self.new_points = -75
         else:
             self.new_points = 100
-    
+
     def output(self):
-    
+
         """A method that determines the score for one round of play
-        
+
         Args:
             self (Dealer): an instance of Dealer.
         """
-        
+
         if (self.card < self.guess_card and self.guess == 'l') or (self.card > self.guess_card and self.guess == 'h'):
             self.new_points = -75
         else:
             self.new_points = 100
-    
-    
+
+
     def play_again(self):
         """Ask the user if he wants to play another round.
-        
+
         Args:
             self (Dealer): an instance of Dealer.
         """
