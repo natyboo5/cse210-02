@@ -120,8 +120,10 @@ class Dealer:
 
         if (self.card < self.guess_card and self.guess == 'l') or (self.card > self.guess_card and self.guess == 'h'):
             self.new_points = -75
+            print('\n\033[32mSorry, you lost 75 points! 😭\033[0m')
         else:
             self.new_points = 100
+            print ('\n\033[032mYou just won 100 points! 🙂✌\033[0m')
 
     def output(self):
 
