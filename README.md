@@ -32,7 +32,7 @@ Hilo is played according to the following rules.
 
 ## Getting Started
 
-You can run the program from an IDE like Visual Studio Code. Start your IDE and open the project folder. Select the main module inside the hilo game folder and click the "run" button.
+You can run the program from an IDE like Visual Studio Code. Start your IDE and open the project folder. Select the main module inside the hilo folder and click the "run" button.
 
 ## Project Structure
 

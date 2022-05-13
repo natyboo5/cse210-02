@@ -117,16 +117,19 @@ class Dealer:
         """
 
         self.points += self.new_points
-        if self.points <= 0:
+        if self.points > 0:
+            if (self.card < self.guess_card and self.guess == 'l') or (self.card > self.guess_card and self.guess == 'h'):
+                self.new_points = -75
+                print('\n\033[32mSorry, you lost 75 points! 😭\033[0m')
+            else:
+                self.new_points = 100
+                print ('\n\033[032mYou just won 100 points! 🙂✌\033[0m')
+            print(f'Your new score is: {self.points}')
+
+        else:
             self.is_playing = False
             print('You do not have enough points')
-        else:
-            print(f'Your score is: {self.points}')
-
-        if (self.card < self.guess_card and self.guess == 'l') or (self.card > self.guess_card and self.guess == 'h'):
-            self.new_points = -75
-        else:
-            self.new_points = 100
+            print()
 
     def output(self):
 
