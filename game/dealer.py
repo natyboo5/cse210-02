@@ -23,6 +23,7 @@ class Dealer:
         """
         self.is_playing = ''
         self.card = 0
+        self.card_text = ''
         self.guess_card = 0
         self.guess = ''
         self.points = 0
@@ -39,11 +40,13 @@ class Dealer:
         self.points = 300
         self.is_playing = True
 
-        print(f'\n\033[31mHILO GAME\033[0m')
+        print(f'\n··········· \033[31mHILO GAME\033[0m ···········')
+        print('♠ ♣ ♥ ♦ 🂱 🂲 🂳 🂴 🂵 🂶 🂷 🂸 🂹 🂺 🂻 🂼 🂽')
 
         while self.is_playing:
             display_card = Display_card()
             self.card = display_card.drawn()
+            self.card_text = display_card.card_text()
 
             self.stop_card = self.card
             self.print_numbers()
@@ -65,6 +68,7 @@ class Dealer:
         """
         print()
         print()
+        print(f'\nThe card is:')
         for i in range(14):
             if i != 0 and i < self.stop_card:
                 print(i, sep=' ', end=' ', flush=True)
@@ -72,7 +76,7 @@ class Dealer:
 
         print(f'\033[31m{self.stop_card}\033[0m')
 
-        print(f'\nThe card is: {self.stop_card}')
+        print(self.card_text)
 
 
     def get_input(self):
@@ -84,6 +88,7 @@ class Dealer:
         """
 
         while True:
+            print()
             self.guess = input('Higher or Lower [h/l]: ').lower()
 
             if self.guess == 'l' or self.guess == 'h':
