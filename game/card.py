@@ -1,7 +1,7 @@
 import random
 
 
-class Display_card:
+class DisplayCard:
     """Generates a random card between 1 to 13
     """
 

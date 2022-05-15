@@ -1,6 +1,6 @@
 """ Hilo Game """
 
-from game.card import Display_card
+from game.card import DisplayCard
 from time import sleep
 
 class Dealer:
@@ -44,7 +44,7 @@ class Dealer:
         print('♠ ♣ ♥ ♦ 🂱 🂲 🂳 🂴 🂵 🂶 🂷 🂸 🂹 🂺 🂻 🂼 🂽')
 
         while self.is_playing:
-            display_card = Display_card()
+            display_card = DisplayCard()
             self.card = display_card.drawn()
             self.card_text = display_card.card_text()
 
@@ -94,7 +94,7 @@ class Dealer:
             if self.guess == 'l' or self.guess == 'h':
 
                 while True:
-                    display_card = Display_card()
+                    display_card = DisplayCard()
                     self.guess_card = display_card.drawn()
                     if self.guess_card == self.card:
                         continue
