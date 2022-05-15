@@ -141,9 +141,10 @@ class Dealer:
 
         if (self.card < self.guess_card and self.guess == 'l') or (self.card > self.guess_card and self.guess == 'h'):
             self.new_points = -75
+            print('you lost 75 points')
         else:
             self.new_points = 100
-
+            print('you earned 100 points')
 
     def play_again(self):
         """Ask the user if he wants to play another round.
