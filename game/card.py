@@ -16,6 +16,9 @@ class DisplayCard:
         return self.card_number
 
     def card_text(self):
+        """ Call the function depending on the card number
+
+        """
         method = 'c_' + str(self.card_number)
         return getattr(self, method)()
 

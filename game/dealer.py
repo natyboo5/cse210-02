@@ -2,6 +2,8 @@
 
 from game.card import DisplayCard
 from time import sleep
+import random
+
 
 class Dealer:
     """A person who directs the game.
@@ -29,7 +31,7 @@ class Dealer:
         self.points = 0
         self.new_points = 0
         self.stop_card = 0
-
+        self.number_times = 0
 
     def start_game(self):
         """Starts the game by running the main game loop.
@@ -39,6 +41,7 @@ class Dealer:
         """
         self.points = 300
         self.is_playing = True
+        self.number_times = 0
 
         print(f'\n··········· \033[31mHILO GAME\033[0m ···········')
         print('♠ ♣ ♥ ♦ 🂱 🂲 🂳 🂴 🂵 🂶 🂷 🂸 🂹 🂺 🂻 🂼 🂽')
@@ -78,7 +81,6 @@ class Dealer:
 
         print(self.card_text)
 
-
     def get_input(self):
         """Ask the user to guess if the next card is higher or lower, and confirm the input is entered correctly (either "h" or "l" only).
         After the input is validated, call the function draw(self) and display a new card.
@@ -108,7 +110,6 @@ class Dealer:
                 print('Wrong letter')
                 continue
 
-
     def update_points(self):
         """A method that determines the score for the entire game
 
@@ -117,22 +118,38 @@ class Dealer:
         """
 
         self.points += self.new_points
+        self.number_times += 1
+
         if self.points > 0:
             if (self.card < self.guess_card and self.guess == 'l') or (self.card > self.guess_card and self.guess == 'h'):
-                self.new_points = -75
                 print('\n\033[32mSorry, you lost 75 points! 😭\033[0m')
+                print()
             else:
-                self.new_points = 100
-                print ('\n\033[032mYou just won 100 points! 🙂✌\033[0m')
+                print('\n\033[032mYou just won 100 points! 🙂✌\033[0m')
+                print()
             print(f'Your new score is: {self.points}')
 
         else:
             self.is_playing = False
-            print('You do not have enough points')
+            print(f'\n\tCONGRATULATIONS - You play {self.number_times} times')
+            print('\n\tBetter luck next time for now you do not have enough points\n\n')
+            self.final()
             print()
 
-    def output(self):
+    def final(self):
+        """Print emojis to finish the game
 
+        Args:
+            self (Dealer): an instance of Dealer.
+        """
+
+        for _ in range(15):
+            for _ in range(random.randint(10, 25)):
+                print(' ', end='')
+            sleep(0.05)
+            print('✨   ✨')
+
+    def output(self):
         """A method that determines the score for one round of play
 
         Args:
@@ -141,10 +158,8 @@ class Dealer:
 
         if (self.card < self.guess_card and self.guess == 'l') or (self.card > self.guess_card and self.guess == 'h'):
             self.new_points = -75
-            print('you lost 75 points')
         else:
             self.new_points = 100
-            print('you earned 100 points')
 
     def play_again(self):
         """Ask the user if he wants to play another round.
@@ -158,4 +173,6 @@ class Dealer:
         if play == 'y':
             self.is_playing = True
         else:
+            print('\n\tCome back soon!\n')
+            self.final()
             self.is_playing = False
